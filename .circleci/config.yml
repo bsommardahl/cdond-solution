@@ -8,7 +8,7 @@ commands:
         type: string      
     steps:
       - run:
-          name: Destroy environment << parameters.workflow_id >>
+          name: Destroy environments
           when: on_fail
           command: |
             echo "Destroying environment: << parameters.workflow_id >> "
@@ -245,7 +245,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-          fingerprints: ["29:fe:41:7a:16:5f:f3:91:89:93:fb:36:da:61:66:94"]
+          "29:fe:41:7a:16:5f:f3:91:89:93:fb:36:da:61:66:94"]
       - attach_workspace:
           at: ~/
       - run:
