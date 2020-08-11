@@ -216,8 +216,11 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            sudo apt-get install tar gzip nodejs npm
             pip install awscli
+            apk add --update curl
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+            nvm install node
+            nvm use node
       - run:
           name: Get backend url
           command: |
@@ -252,7 +255,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update tar gzip ansible nodejs npm
+            apk add --update tar gzip ansible
             pip install awscli
       - run:
           name: Deploy backend
@@ -315,7 +318,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            apk add --update curl nodejs npm
+            apk add --update curl
             pip install awscli
       - run:
           name: Update cloudfront distribution
